@@ -95,17 +95,22 @@ parser.add_argument('-d', '--desktop', type=int, default=0, help="desktop number
 parser.add_argument('-m', '--monitor', type=int, default=0, help="monitor number")
 parser.add_argument('-c', '--column' , type=int, default=0, help="workspace column number")
 parser.add_argument('-r', '--row'    , type=int, default=0, help="workspace row number")
-parser.add_argument('-p', '--print'  , type=bool, default=False, help="print internal detected display configuration")
+parser.add_argument('-p', '--print'  , choices=['geometry', 'debug', 'position', 'size'], default="geometry", help="specify output format")
 parser.add_argument('-f', '--full'   , type=bool, default=True, help="occupy full workspace")
-parser.add_argument('-g', '--gravity', type=int, default=0, help="WM gravity (pass-through parameter)")
 args = parser.parse_args()
 
 ctx = get_wm_info()
-if args.print:
+if args.print == 'debug':
     pprint.pprint (ctx)
-elif args.full:
+elif args.print == 'geometry':
     print("%d,%d,%d,%d,%d" % 
-          ((args.gravity,) + calc_viewport(ctx,args.desktop,args.monitor,args.column,args.row)))
+          ((0,) + calc_viewport(ctx,args.desktop,args.monitor,args.column,args.row)))
+elif args.print == 'position':
+    (x,y,w,h) = calc_viewport(ctx,args.desktop,args.monitor,args.column,args.row)
+    print("%d,%d" % (x,y))
+elif args.print == 'size':
+    (x,y,w,h) = calc_viewport(ctx,args.desktop,args.monitor,args.column,args.row)
+    print("%d,%d" % (w,h))
 else:
     print("Unsupported!")
     sys.exit(1)
