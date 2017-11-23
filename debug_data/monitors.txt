@@ -1,0 +1,27 @@
+# -- Builtin, 1080, single --
+# $ wmctrl -d 
+#0  * DG: 3840x2160  VP: 0    ,0     WA: 49,18 1871x1062  N/A
+#0  * DG: 3840x2160  VP: 1920 ,0     WA: 49,18 1871x1062  N/A
+#0  * DG: 3840x2160  VP: 0    ,1080  WA: 49,18 1871x1062  N/A
+#0  * DG: 3840x2160  VP: 1920 ,1080  WA: 49,18 1871x1062  N/A
+# $ dconf read /org/compiz/profiles/unity/plugins/core/outputs
+#['1920x1080+0+0']
+
+# -- Home, 4K, landsacpe ---
+# $ wmctrl -d 
+#0  * DG: 11520x4320  VP: 0    ,0     WA: 49,15 5711x2145  N/A
+#0  * DG: 11520x4320  VP: 5760 ,0     WA: 49,15 5711x2145  N/A
+#0  * DG: 11520x4320  VP: 0    ,2160  WA: 49,15 5711x2145  N/A
+#0  * DG: 11520x4320  VP: 5760 ,2160  WA: 49,15 5711x2145  N/A
+# $ dconf read /org/compiz/profiles/unity/plugins/core/outputs
+#['1920x1080+0+0', '3840x2160+1920+0']
+
+# -- Work, 1080, portrait ---
+# $ wmctrl -d 
+#0  * DG: 6000x3840  VP: 0    ,0     WA: 49,15 2951x1905  N/A
+#0  * DG: 6000x3840  VP: 3000 ,0     WA: 49,15 2951x1905  N/A
+#0  * DG: 6000x3840  VP: 0    ,1920  WA: 49,15 2951x1905  N/A
+#0  * DG: 6000x3840  VP: 3000 ,1920  WA: 49,15 2951x1905  N/A
+# $ dconf read /org/compiz/profiles/unity/plugins/core/outputs
+#['1920x1080+0+0', '1080x1920+1920+0']
+
